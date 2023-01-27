@@ -15,13 +15,20 @@ const addTransactionIntoDOM = transaction => {
 
     li.classList.add(CSSClass)
     li.innerHTML = ` 
-        ${transaction.name} <span>${operator} R$ ${amountWithoutOperator} </span><button Class="delete.btn">x</button>
+         ${transaction.name} <span>${operator} R$ ${amountWithoutOperator} 
     `
     transactionsUl.append(li)      
 }
 
+const updateBalanceValues = () => {
+    const transactionsAmounts = dummyTransactions.map(transaction => transaction.amount)
+    console.log(transactionsAmounts)
+}
+
 const init = () => {
     dummyTransactions.forEach(addTransactionIntoDOM)
+    updateBalanceValues()
+
 }
 
 init()
