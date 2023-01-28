@@ -16,7 +16,7 @@ let dummyTransactions = [
 
 const removeTransaction = ID => {
     dummyTransactions = dummyTransactions.filter(transaction => transaction.id !== ID)
-    console.log(dummyTransactions)
+    init()
 
 }
 
