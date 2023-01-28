@@ -5,7 +5,7 @@ const balanceDisplay = document.querySelector('#balance')
 const form = document.querySelector('#form')
 const inputTransactionName = document.querySelector('#text')
 const inputTransactionAmount = document.querySelector('#amount')
-console.log({inputTransactionName, inputTransactionAmount});
+
 
 let dummyTransactions = [
     {id: 1, name: 'Bolo de Brigadeiro', amount: -20},
@@ -16,7 +16,8 @@ let dummyTransactions = [
 
 const removeTransaction = ID => {
     dummyTransactions = dummyTransactions.filter(transaction => transaction.id !== ID)
-    init() 
+    console.log(dummyTransactions)
+
 }
 
 const addTransactionIntoDOM = transaction => {
@@ -54,7 +55,7 @@ const updateBalanceValues = () => {
     incomeDisplay.textContent = `R$ ${income}`
     expenseDisplay.textContent = `R$ ${expense}`
 
-    console.log(expense)
+    
 }
 
 const init = () => {
@@ -81,7 +82,7 @@ form.addEventListener('submit', Event => {
     const transaction = { 
         id: generateID(), 
         name: TransactionName, 
-        amount: Number(TransactionAmount) // Ou colocar o sinal de (+) antes da TransactionAmout - trans em numero.
+        amount: Number(TransactionAmount) // Ou colocar o sinal de (+) antes da TransactionAmout - tbem transforma em numero.
     }
 
     dummyTransactions.push(transaction)
