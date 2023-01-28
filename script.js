@@ -2,6 +2,10 @@ const transactionsUl = document.querySelector('#transactions')
 const incomeDisplay = document.querySelector('#money-plus')
 const expenseDisplay = document.querySelector('#money-minus')
 const balanceDisplay = document.querySelector('#balance')
+const form = document.querySelector('#form')
+const inputTransactionName = document.querySelector('#text')
+const inputTransactionAmount = document.querySelector('#amount')
+console.log({inputTransactionName, inputTransactionAmount});
 
 const dummyTransactions = [
     {id: 1, name: 'Bolo de Brigadeiro', amount: -20},
@@ -45,9 +49,36 @@ const updateBalanceValues = () => {
 }
 
 const init = () => {
+    transactionsUl.innerHTML = ''
     dummyTransactions.forEach(addTransactionIntoDOM)
     updateBalanceValues()
 
 }
 
 init()
+
+const generateID = () => Math.round(Math.random() * 1000) 
+
+form.addEventListener('submit', Event => {
+    Event.preventDefault()
+
+    const TransactionName = inputTransactionName.value.trim()
+    const TransactionAmount = inputTransactionAmount.value.trim()
+
+    if(TransactionName === '' || TransactionAmount === ''){
+        alert('Por favor, preencha tanto o nome quanto o valor da transação')
+        return
+    }
+    const transaction = { 
+        id: generateID(), 
+        name: TransactionName, 
+        amount: Number(TransactionAmount) // Ou colocar o sinal de (+) antes da TransactionAmout - trans em numero.
+    }
+
+    dummyTransactions.push(transaction)
+    init()
+
+    inputTransactionName.value = ''
+    inputTransactionAmount.value = ''
+
+})
