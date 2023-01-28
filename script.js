@@ -17,7 +17,6 @@ let dummyTransactions = [
 const removeTransaction = ID => {
     dummyTransactions = dummyTransactions.filter(transaction => transaction.id !== ID)
     init()
-
 }
 
 const addTransactionIntoDOM = transaction => {
@@ -30,7 +29,7 @@ const addTransactionIntoDOM = transaction => {
     li.innerHTML = ` 
          ${transaction.name}
          <span>${operator} R$ ${amountWithoutOperator}</span> 
-         <button class="delete-btn onClick="removeTransaction(${transaction.id})>
+         <button class="delete-btn onClick="removeTransaction(${transaction.id})">
          x
          </button>
     `
