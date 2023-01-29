@@ -14,8 +14,15 @@ let dummyTransactions = [
     {id: 4, name: 'Violão', amount: 150}
 ]
 
+const localStorageTransactions = JSON.parse(localStorage
+    .getItem('transactions'))
+let transactions = localStorage
+    .getItem('transactions') !== null ? localStorageTransactions : []
+
+
 const removeTransaction = ID => {
-    dummyTransactions = dummyTransactions.filter(transaction => transaction.id !== ID)
+    dummyTransactions = dummyTransactions.filter(transaction => 
+    transaction.id !== ID)
     init()
 }
 
