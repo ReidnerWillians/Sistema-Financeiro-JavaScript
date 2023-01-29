@@ -28,8 +28,8 @@ const addTransactionIntoDOM = transaction => {
     li.classList.add(CSSClass)
     li.innerHTML = ` 
          ${transaction.name}
-         <span>${operator} R$ ${amountWithoutOperator}</span> 
-         <button class="delete-btn onClick="removeTransaction(${transaction.id})">
+         <span> ${operator} R$ ${amountWithoutOperator} </span> 
+         <button class="delete-btn" onClick="removeTransaction(${transaction.id})">
          x
          </button>
     `
